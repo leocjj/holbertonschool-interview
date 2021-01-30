@@ -5,7 +5,6 @@
 def canUnlockAll(boxes):
     """  Determines if all the boxes can be opened. """
     list_of_unique_keys = set()
-    number_of_keys = len(list_of_unique_keys)
 
     for i, keys in enumerate(boxes):
         temp = set(keys)
