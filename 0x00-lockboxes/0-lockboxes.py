@@ -13,20 +13,20 @@ def canUnlockAll(boxes):
     len_boxes = len(boxes)
 
     while True:
-        # Identify new keys found.
+        # New keys found.
         new_keys = keys - list_of_unique_keys
         # If still in loop and no new keys found
         if not new_keys:
             return False
         keys = set()
         # For each new key found.
-        for i in new_keys:
+        for key in new_keys:
             # Only take in count usefull keys.
-            if 0 < i < len_boxes:
+            if 0 < key < len_boxes:
                 # Add key to list of unique keys.
-                list_of_unique_keys |= {i}
-                # With each key open the box and store keys found.
-                keys |= set(boxes[i])
-        # If all keys were found.
+                list_of_unique_keys |= {key}
+                # With each key open the box and store the keys found.
+                keys |= set(boxes[key])
+        # If keys were found for all boxes.
         if len(list_of_unique_keys) + 1 == len_boxes:
             return True
