@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
 
     for i, keys in enumerate(boxes):
         temp = set(keys)
-        print(i, keys, list_of_unique_keys, temp)
+        # print(i, keys, list_of_unique_keys, temp)
         if temp - list_of_unique_keys:
             list_of_unique_keys |= temp
         else:
