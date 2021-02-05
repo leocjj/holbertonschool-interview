@@ -23,23 +23,19 @@ listint_t *insert_node(listint_t **head, int number)
         return (NULL);
     new->n = number;
 
-	// Null list
     if (*head == NULL)
 	{
         *head = new;
 		return (new);
 	}
-	// Number at the begining of the list
 	if (number <= current->n)
 	{
 		new->next = *head;
 		*head = new;
 		return (new);
 	}
-	// Look for the right position
 	while (current != NULL)
 	{
-		// If right position is found
 		if (number <= current->n)
 		{
 			new->next = current;
@@ -49,8 +45,8 @@ listint_t *insert_node(listint_t **head, int number)
 		temp_node = current;
 		current = current->next;
 	}
-	// If right position isn't found, insert at the end of the list.
 	new->next = NULL;
 	temp_node->next = new;
+
     return (new);
 }
