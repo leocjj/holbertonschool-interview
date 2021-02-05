@@ -32,6 +32,8 @@ int main(void)
     insert_node(&head, 402);
     insert_node(&head, 500);
     insert_node(&head, 2000);
+    insert_node(&head, -10);
+    insert_node(&head, 3000);
 
     print_listint(head);
 
