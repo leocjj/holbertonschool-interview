@@ -37,8 +37,9 @@ heap_t *ith_node(heap_t *root, const int i)
 	/* If i is 1, we return the root. */
 	if (i == 1)
 		return (root);
-	/* Set b to the value of the most significant binary digit
-	*set in b. This is a known trick.
+	/*
+	* Set b to the value of the most significant binary digit
+	* set in b. This is a known trick.
 	*/
 	while (b & (b - 1))
 		b &= b - 1;
@@ -62,8 +63,8 @@ heap_t *ith_node(heap_t *root, const int i)
 				return (NULL); /* Not a complete tree, or outside the tree. */
 		}
 		b >>= 1;
-    }
-    return (root);
+	}
+	return (root);
 }
 
 /**
@@ -75,11 +76,10 @@ heap_t *ith_node(heap_t *root, const int i)
 int *order_node(heap_t **root)
 {
 	heap_t *head;
-	head = *root;
-
 	int temp;
 
-	printf("Inserted: %d\n", head->n);
+	head = *root;
+
 	while (head->parent)
 	{
 		if (head->n > head->parent->n)
