@@ -72,7 +72,7 @@ heap_t *ith_node(heap_t *root, const int i)
  *
  * Return: return the ith node of a heap
  */
-int *order_node(heap_t **root)
+heap_t *order_node(heap_t **root)
 {
 	heap_t *head;
 	int temp;
@@ -91,7 +91,7 @@ int *order_node(heap_t **root)
 		else
 			break;
 	}
-	return (0);
+	return (head);
 }
 
 /**
@@ -129,6 +129,5 @@ heap_t *heap_insert(heap_t **root, int value)
 	else
 		temp->right = new_node;
 
-	order_node(&new_node);
-	return (new_node);
+	return (order_node(&new_node));
 }
