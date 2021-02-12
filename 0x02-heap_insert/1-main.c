@@ -34,7 +34,7 @@ int main(void)
     node = heap_insert(&root, 402);
     printf("\nInserted: %d\n", node->n);
     binary_tree_print(root);
-    node = heap_insert(&root, 12);
+    node = heap_insert(&root, 512);
     printf("\nInserted: %d\n", node->n);
     binary_tree_print(root);
     node = heap_insert(&root, 46);
