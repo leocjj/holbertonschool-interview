@@ -23,5 +23,8 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 heap_t *heap_insert(heap_t **root, int value);
 
 void binary_tree_print(const binary_tree_t *tree);
+heap_t *ith_node(heap_t *root, const int i);
+int measure(const binary_tree_t *tree);
+int *order_node(heap_t **root);
 
 #endif /* BINARY_TREES_H */
