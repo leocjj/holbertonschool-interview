@@ -8,8 +8,8 @@ def gcd(num):
     :param num: integer
     :return: the maximum divisor of num
     """
-    if not isinstance(num, int) or num < 1:
-        return None
+    if not isinstance(num, int) or num <= 1:
+        return 0
     if num == 2:
         return 1
     for divisor in range(int(num / 2) + 1, 0, -1):
@@ -27,8 +27,8 @@ def minOperations(n):
     :return: Returns an integer, 0 if n is impossible to achieve.
     """
     n *= 2
-    if not isinstance(n, int) or n < 1:
-        print(0)
+    if not isinstance(n, int) or n <= 1:
+        return 0
 
     divs = []
     while n > 1:
