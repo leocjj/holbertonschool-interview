@@ -16,6 +16,7 @@ def gcd(num):
         if (num % divisor) == 0:
             return divisor
 
+
 def minOperations(n):
     """
     In a text file, there is a single character H. Your text editor can execute
