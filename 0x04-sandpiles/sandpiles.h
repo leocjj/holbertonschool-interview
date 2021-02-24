@@ -1,9 +1,10 @@
-#ifndef SANDPILES_H
-#define SANDPILES_H
-#include <stdlib.h>
+#ifndef SANDPILES_H_
+#define SANDPILES_H_
 #include <stdio.h>
+#include <stdlib.h>
 
-void print_g(int grid[3][3]);
+int isStable(int grid[3][3]);
+void topple(int grid[3][3]);
 void sandpiles_sum(int grid1[3][3], int grid2[3][3]);
 
 #endif
