@@ -34,6 +34,7 @@ void print_g(int grid[3][3])
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 	int unstable = 1;
+	int unstable_matrix[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
 
 	for (int i = 0; i <= 2; i++)
 		for (int j = 0; j <= 2; j++)
@@ -42,29 +43,32 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	while (unstable)
 	{
 		unstable = 0;
+
+		for (int i = 0; i <= 2; i++)
+			for (int j = 0; j <= 2; j++)
+				if (grid1[i][j] > 3)
+					unstable_matrix[i][j] = 1;
+				else
+					unstable_matrix[i][j] = 0;
+		print_g(grid1);
 		for (int i = 0; i <= 2; i++)
 		{
 			for (int j = 0; j <= 2; j++)
 			{
-				if (grid1[i][j] >= 4)
+				if (unstable_matrix[i][j] == 1)
 				{
 					unstable = 1;
 					grid1[i][j] -= 4;
-
-					if ((i - 1) >= 0)
+					if (i > 0)
 						grid1[i - 1][j] += 1;
-
-					if ((i + 1) <= 2)
+					if (i < 2)
 						grid1[i + 1][j] += 1;
-
-					if ((j - 1) >= 0)
+					if (j > 0)
 						grid1[i][j - 1] += 1;
-
-					if ((j + 1) <= 2)
+					if (j < 2)
 						grid1[i][j + 1] += 1;
 				}
 			}
 		}
-		print_g(grid1);
 	}
 }
