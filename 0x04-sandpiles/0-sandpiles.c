@@ -95,13 +95,10 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 	int x, y;
 
-	for (x = 0; x < 3; x++)
-	{
-		for (y = 0; y < 3; y++)
-		{
-			grid1[x][y] += grid2[x][y];
-		}
-	}
+	for (int i = 0; i <= 2; i++)
+		for (int j = 0; j <= 2; j++)
+			grid1[i][j] += grid2[i][j];
+
 	while (!isStable(grid1))
 	{
 		print_g(grid1);
