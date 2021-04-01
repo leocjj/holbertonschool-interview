@@ -18,15 +18,18 @@ def print_stats(total_size, stats):
 
 if __name__ == "__main__":
     total_size = 0
+    line_counter = 0
     stats = OrderedDict({'200': 0, '301': 0, '400': 0, '401': 0, '403': 0, '404': 0, '405': 0, '500': 0})
     try:
         for line in sys.stdin:
             arguments = line.split()
-            #print(stats.keys())
             if len(arguments) >= 2 and arguments[-2] in stats:
                 stats.update({str(arguments[-2]): stats.get(arguments[-2]) + 1})
                 total_size += int(arguments[-1])
-            print_stats(total_size, stats)
+            line_counter += 1
+            if line_counter == 10:
+                print_stats(total_size, stats)
+                line_counter = 0
     except KeyboardInterrupt:
-        print("Saliendo")
+        print_stats(total_size, stats)
         raise
