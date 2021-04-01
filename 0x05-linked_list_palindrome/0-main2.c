@@ -11,31 +11,28 @@
 int main(void)
 {
 	listint_t *head;
-	listint_t *current;
 	clock_t start;
 	clock_t end;
 	clock_t diff;
 	int i;
 
 	head = NULL;
-	for (i = 0; i < 1001; i++)
+	for (i = 0; i <= 1000; i++)
 		add_nodeint_end(&head, i);
-	for (i = 1000; i >= 0; i--)
+	for (i = 999; i >= 0; i--)
 		add_nodeint_end(&head, i);
 
-	current = head;
-	for (i = 0; i < 727; i++)
-		current = current->next;
-	current->n = -98;
+	print_listint(head);
 
 	start = clock();
 
 	for (i = 0; i < 10; i++)
-		is_palindrome(&head);
+		printf("%d", is_palindrome(&head));
 
 	end = clock();
 
 	diff = (double)(end - start) / 10;
+	printf("time: %li\n", diff);
 
 	if (diff > 80)
 		printf("Runtime too long\n");
