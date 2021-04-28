@@ -21,6 +21,9 @@ int measure(const heap_t *root)
 
 /**
  * ith_node - return the ith node of a heap
+ * https://stackoverflow.com/questions/51506395/
+ * how-can-one-find-the-last-right-most-node-on
+ * -the-last-level-of-tree-which-is-a
  * @root: is to the root node of the Heap.
  * @i: node
  *
