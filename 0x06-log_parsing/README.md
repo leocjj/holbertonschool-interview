@@ -12,8 +12,7 @@
     All your files must be executable
 
 
-## 0. Minimum Operations
-Write a script that reads stdin line by line and computes metrics:
+## Script that reads stdin line by line and computes metrics:
 
     Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
     After every 10 lines and/or a keyboard interruption (CTRL + C), print these statistics from the beginning:
@@ -27,7 +26,6 @@ Write a script that reads stdin line by line and computes metrics:
 
 ## Built With
 
-* Windows 10
 * Python 3.6
 * Pycharm 2020.2
 * Pycharm style
