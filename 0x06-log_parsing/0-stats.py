@@ -1,45 +1,43 @@
 #!/usr/bin/python3
-"""Program that reads stdin line by line and computes metrics"""
+"""
+0x00. Minimum operations
+Script that reads stdin line by line and computes metrics
+Input: <IP> - [<date>] "GET /projects/260 HTTP/1.1" <stat code> <file size>
+After every 10 lines and/or a keyboard interruption (CTRL + C),
+print these statistics from the beginning.
+"""
 from sys import stdin
 
 
-statusCode = {
-    "200": 0,
-    "301": 0,
-    "400": 0,
-    "401": 0,
-    "403": 0,
-    "404": 0,
-    "405": 0,
-    "500": 0
-}
-totalSize = 0
+total_size = 0
+stats = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0,
+         '404': 0, '405': 0, '500': 0}
 
 
-def printStat():
-    """Function that print log accumulately"""
-    print("File size: {}".format(totalSize))
-    for x in sorted(statusCode.keys()):
-        if statusCode[x]:
-            print("{}: {}".format(x, statusCode[x]))
+def print_stats():
+    """
+    Print these statistics from the beginning
+    :return: None
+    """
+    print("File size: {}".format(total_size))
+    for key, value in sorted(stats.items()):
+        if value > 0:
+            print("{}: {}".format(key, value))
 
 
 if __name__ == "__main__":
-    ct = 0
+    line_counter = 0
     try:
-        for y in stdin:
-            try:
-                item = y.split()
-                totalSize += int(item[-1])
-                if item[-2] in statusCode:
-                    statusCode[item[-2]] += 1
-            except:
-                pass
-            if ct == 9:
-                printStat()
-                ct = -1
-            ct += 1
+        for line in stdin:
+            args = line.split()
+            total_size += int(args[-1])
+            if args[-2] in stats:
+                stats[args[-2]] += 1
+            line_counter += 1
+            if line_counter == 10:
+                print_stats()
+                line_counter = 0
     except KeyboardInterrupt:
-        printStat()
+        print_stats()
         raise
-    printStat()
+    print_stats()
