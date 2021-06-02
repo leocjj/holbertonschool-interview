@@ -33,10 +33,10 @@ if __name__ == "__main__":
             total_size += int(args[-1])
             if args[-2] in stats:
                 stats[args[-2]] += 1
-            line_counter += 1
-            if line_counter == 10:
+            if line_counter == 9:
                 print_stats()
-                line_counter = 0
+                line_counter = -1
+            line_counter += 1
     except KeyboardInterrupt:
         print_stats()
         raise
