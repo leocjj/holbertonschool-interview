@@ -26,10 +26,13 @@ if __name__ == "__main__":
     line_counter = 0
     try:
         for line in stdin:
-            args = line.split()
-            total_size += int(args[-1])
-            if args[-2] in stats:
-                stats[args[-2]] += 1
+            try:
+                args = line.split()
+                total_size += int(args[-1])
+                if args[-2] in stats:
+                    stats[args[-2]] += 1
+            except:
+                pass
             if line_counter == 9:
                 print_stats()
                 line_counter = -1
