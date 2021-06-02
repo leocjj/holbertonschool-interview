@@ -32,13 +32,13 @@ if __name__ == "__main__":
         for line in stdin:
             args = line.split()
             total_size += int(args[-1])
-            if len(args) >= 2 and args[-2] in stats:
-                stats.update({args[-2]: stats.get(args[-2]) + 1})
+            if args[-2] in stats:
+                stats[args[-2]] += 1
             line_counter += 1
             if line_counter == 10:
                 print_stats()
                 line_counter = 0
     except KeyboardInterrupt:
+        pass
+    finally:
         print_stats()
-        raise
-    print_stats()
