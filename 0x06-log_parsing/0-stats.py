@@ -9,16 +9,16 @@ print these statistics from the beginning.
 """
 
 
-def print_stats(total_size, stats):
+def print_stats(size, stat):
     """
     Print these statistics from the beginning
-    :param total_size: Total file size
-    :param stats: dictionary with status code and counters.
+    :param size: Total file size
+    :param stat: dictionary with status code and counters.
     :return: None
     """
 
-    print("File size: {}".format(total_size))
-    for key, value in stats.items():
+    print("File size: {}".format(size))
+    for key, value in stat.items():
         if value > 0:
             print("{}: {}".format(key, value))
 
