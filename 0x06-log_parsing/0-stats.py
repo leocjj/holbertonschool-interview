@@ -31,9 +31,9 @@ if __name__ == "__main__":
     try:
         for line in stdin:
             args = line.split()
+            total_size += int(args[-1])
             if len(args) >= 2 and args[-2] in stats:
                 stats.update({str(args[-2]): stats.get(args[-2]) + 1})
-                total_size += int(args[-1])
             line_counter += 1
             if line_counter == 10:
                 print_stats()
