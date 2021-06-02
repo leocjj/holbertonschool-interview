@@ -15,10 +15,7 @@ stats = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0,
 
 
 def print_stats():
-    """
-    Print these statistics from the beginning
-    :return: None
-    """
+    """    Print these statistics from the beginning     """
     print("File size: {}".format(total_size))
     for key, value in sorted(stats.items()):
         if value > 0:
