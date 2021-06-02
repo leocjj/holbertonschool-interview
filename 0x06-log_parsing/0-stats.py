@@ -15,7 +15,10 @@ stats = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0,
 
 
 def print_stats():
-    """    Print these statistics from the beginning     """
+    """
+    Print these statistics from the beginning
+    :return: None
+    """
     print("File size: {}".format(total_size))
     for key, value in sorted(stats.items()):
         if value > 0:
@@ -27,13 +30,14 @@ if __name__ == "__main__":
     try:
         for line in stdin:
             args = line.split()
-            total_size += int(args[-1])
-            if args[-2] in stats:
-                stats[args[-2]] += 1
-            if line_counter == 9:
-                print_stats()
-                line_counter = -1
             line_counter += 1
+            if len(args) > 2:
+                total_size += int(args[-1])
+                if args[-2] in stats:
+                    stats.update({str(args[-2]): stats.get(args[-2]) + 1})
+            if line_counter == 10:
+                print_stats()
+                line_counter = 0
     except KeyboardInterrupt:
         print_stats()
         raise
