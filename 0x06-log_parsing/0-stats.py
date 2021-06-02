@@ -1,12 +1,5 @@
 #!/usr/bin/python3
 import sys
-"""
-0x00. Minimum operations
-Script that reads stdin line by line and computes metrics
-Input: <IP> - [<date>] "GET /projects/260 HTTP/1.1" <stat code> <file size>
-After every 10 lines and/or a keyboard interruption (CTRL + C),
-print these statistics from the beginning.
-"""
 
 
 def print_stats(size, stat):
