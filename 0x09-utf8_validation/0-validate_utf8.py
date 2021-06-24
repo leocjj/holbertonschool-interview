@@ -15,7 +15,6 @@ def validUTF8(data):
     :return: True if data is a valid UTF-8 encoding, else return False.
     """
 
-    data = [number & 0xFF for number in data]
     data_size = len(data)
     j = 0
     while j < data_size:
@@ -29,7 +28,7 @@ def validUTF8(data):
             bytes_to_check = 3
         else:
             return False
-        if bytes_to_check > data_size - j or bytes_to_check == 1:
+        if bytes_to_check == 1:
             return False
         for i in range(1, bytes_to_check + 1):
             if not (data[j + i] & int('11000000', 2)) == int('10000000', 2):
