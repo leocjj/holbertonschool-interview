@@ -15,12 +15,6 @@ def validUTF8(data):
     :return: True if data is a valid UTF-8 encoding, else return False.
     """
 
-    if not data or not isinstance(data, list):
-        return False
-    for i in data:
-        if not isinstance(i, int):
-            return False
-
     data_size = len(data)
     j = 0
     while j < data_size:
