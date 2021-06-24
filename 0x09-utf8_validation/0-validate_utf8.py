@@ -17,7 +17,6 @@ def validUTF8(data):
 
     data = [number & 0xFF for number in data]
     data_size = len(data)
-    bytes_to_check = 0
     j = 0
     while j < data_size:
         if (data[j] & int('10000000', 2)) == 0:
@@ -28,13 +27,12 @@ def validUTF8(data):
             bytes_to_check = 2
         elif (data[j] & int('11111000', 2)) == int('11110000', 2):
             bytes_to_check = 3
-
-        if bytes_to_check > data_size - j:
+        else:
+            return False
+        if bytes_to_check == 1 or bytes_to_check > 4:
             return False
         for i in range(1, bytes_to_check + 1):
-            if (data[j + i] & int('11000000', 2)) == int('10000000', 2):
-                continue
-            else:
+            if not (data[j + i] & int('11000000', 2)) == int('10000000', 2):
                 return False
         j += bytes_to_check + 1
     return True
