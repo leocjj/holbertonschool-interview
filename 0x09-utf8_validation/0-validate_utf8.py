@@ -27,8 +27,7 @@ def validUTF8(data):
             bytes_to_check = 2
         elif (data[j] & int('11111000', 2)) == int('11110000', 2):
             bytes_to_check = 3
-        else:
-            bytes_to_check = -1
+
         if bytes_to_check > data_size - j:
             return False
         for i in range(1, bytes_to_check + 1):
