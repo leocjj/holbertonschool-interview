@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 0x09. UTF-8 Validation
 A character in UTF-8 can be 1 to 4 bytes long.
