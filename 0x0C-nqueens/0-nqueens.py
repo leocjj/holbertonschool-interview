@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" nqueens problem. """
+"""
+nqueens problem.
+"""
 import sys
 
 
