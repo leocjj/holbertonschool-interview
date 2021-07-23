@@ -5,11 +5,11 @@ import sys
 
 def init():
     nq = None
-    if len(argv) != 2:
+    if len(sys.argv) != 2:
         print('Usage: nqueens N')
         exit(1)
     try:
-        nq = int(argv[1])
+        nq = int(sys.argv[1])
     except ValueError:
         print('N must be a number')
         exit(1)
