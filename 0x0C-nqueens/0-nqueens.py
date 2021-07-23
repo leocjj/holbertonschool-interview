@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ nqueens problem """
-from sys import argv
+import sys
 
 
 def init():
