@@ -1,39 +1,41 @@
 #!/usr/bin/python3
-"""
-Program that solves the N queens problem
-"""
-
-
+"""Finds the number of queens that can be placed on a board
+   without being under attack"""
 import sys
 
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        sys.exit(1)
-
-    try:
-        N = int(sys.argv[1])
-    except ValueError:
-        print("N must be a number")
-        sys.exit(1)
-
-    if N < 4:
-        print("N must be at least 4")
-        sys.exit(1)
+N = sys.argv
+if len(N) != 2:
+    print("Usage: nqueens N")
+    exit(1)
+N = int(N[1])
+if not isinstance(N, int):
+    print("N must be a number")
+    exit(1)
+if N < 4:
+    print("N must be at least 4")
+    exit(1)
 
 
-def backtracking(N, i=0, a=[], b=[], c=[]):
-    """Generates backtracking solutions for N queens problem"""
-    if i < N:
-        for j in range(N):
-            if j not in a and i+j not in b and i-j not in c:
-                for solution in backtracking(N, i+1, a+[j], b+[i+j], c+[i-j]):
-                    yield solution
-    else:
-        yield a
+def under_attack(col, queens):
+    return col in queens or \
+           any(abs(col - x) == len(queens)-i for i, x in enumerate(queens))
 
 
-for solution in backtracking(N):
-    answer = [[col, row] for col, row in enumerate(solution)]
-    print(answer)
+def solve(n):
+    solutions = [[]]
+    for row in range(n):
+        solutions = [solution+[i]
+                     for solution in solutions
+                     for i in range(N)
+                     if not under_attack(i, solution)]
+    return solutions
+
+
+for answer in solve(N):
+    A = list(enumerate(answer, start=0))
+    i = 0
+    for t in A:
+        t = list(t)
+        A[i] = t
+        i += 1
+    print(A)
