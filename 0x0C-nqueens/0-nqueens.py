@@ -33,6 +33,7 @@ def backtracking(N, i=0, a=[], b=[], c=[]):
     else:
         yield a
 
+
 for solution in backtracking(N):
     answer = [[col, row] for col, row in enumerate(solution)]
     print(answer)
