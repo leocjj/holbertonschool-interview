@@ -10,6 +10,9 @@ $ sudo npm install semistandard --global
 $ sudo npm install request --global
 $ export NODE_PATH=/usr/lib/node_modules
 
+
+https://swapi-api.hbtn.io/
+
 ## Author
 
 **Leonardo Calderon J.** - *Initial work* 
