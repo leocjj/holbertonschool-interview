@@ -1,5 +1,7 @@
 #!/usr/bin/node
-/* export NODE_PATH=/usr/lib/node_modules */
+/*
+export NODE_PATH=/usr/lib/node_modules
+*/
 const request = require('request');
 const baseURL = 'https://swapi-api.hbtn.io/api/films/'.concat(process.argv[2]);
 
