@@ -9,7 +9,7 @@ def rain(walls):
     Given a list of non-negative integers representing the heights of wall
     with unit width 1, as if viewing the cross-section of a relief map,
     calculate how many square units of water will be retained after it rains.
-    :param walls: list of non-negative integers.    
+    :param walls: list of non-negative integers.
     :return: Integer indicating total amount of rainwater retained.
     """
 
