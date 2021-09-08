@@ -38,6 +38,7 @@ res2 = res.json()['data']['children']
 pass
 '''
 
+
 def count_words(subreddit, wlist, after="", counting={}):
     """
     recursive function
@@ -74,9 +75,11 @@ def count_words(subreddit, wlist, after="", counting={}):
     r = requests.get(url, headers=headers, allow_redirects=False)
     if str(r) != '<Response [200]>':
         return None
+
     data = r.json().get('data')
     after = data.get('after')
     children_list = data.get('children')
+
     for child in children_list:
         title = child.get('data').get('title')
         for word in wlist:
@@ -86,6 +89,7 @@ def count_words(subreddit, wlist, after="", counting={}):
                     counting[word] += ocurrences
                 else:
                     counting[word] = ocurrences
+
     if after is not None:
         return count_words(subreddit, wlist, after, counting)
     else:
