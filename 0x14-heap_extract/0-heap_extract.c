@@ -1,9 +1,9 @@
 #include "binary_trees.h"
 
 /**
- * my_height - Function that returns the height of a tree
+ * my_height - returns the height of a tree
  * @tree: Head of a binary tree
- * Return: The height of the tree starting from the head
+ * Return: height of the tree starting from the head
  */
 
 size_t my_height(const binary_tree_t *tree)
@@ -30,7 +30,7 @@ size_t my_height(const binary_tree_t *tree)
 }
 
 /**
- * my_order - Walks a binary tree
+ * my_order - walks a binary tree
  * @root: Pointer to root of the tree
  * @node: Pointer to node in the tree
  * @height: Height tree
@@ -53,7 +53,7 @@ void my_order(heap_t *root, heap_t **node, size_t height, size_t floor)
 }
 
 /**
- * my_sorting - Sorts a binary tree
+ * my_sorting - sorts a binary tree
  * @node: Pointer to the root
  * Return: Pointer to node
  **/
@@ -83,7 +83,7 @@ heap_t *my_sorting(heap_t *node)
 }
 
 /**
- * heap_extract - Extracts the root node
+ * heap_extract - extracts the root node
  * @root: Pointer to the root
  * Return: Value
  **/
