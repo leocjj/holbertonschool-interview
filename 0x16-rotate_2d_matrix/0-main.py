@@ -1,13 +1,14 @@
-#!/usr/bin/python3
-"""
-Test 0x16 - Rotate 2D Matrix
-"""
-rotate_2d_matrix = __import__('0-rotate_2d_matrix').rotate_2d_matrix
+#!/usr/bin/env python3
 
-if __name__ == "__main__":
-    matrix = [[1, 2, 3],
-              [4, 5, 6],
-              [7, 8, 9]]
+Dataset = __import__('0-dataset').Dataset
+import tensorflow as tf
 
-    rotate_2d_matrix(matrix)
-    print(matrix)
+data = Dataset()
+for pt, en in data.data_train.take(1):
+    print(pt.numpy().decode('utf-8'))
+    print(en.numpy().decode('utf-8'))
+for pt, en in data.data_valid.take(1):
+    print(pt.numpy().decode('utf-8'))
+    print(en.numpy().decode('utf-8'))
+print(type(data.tokenizer_pt))
+print(type(data.tokenizer_en))
