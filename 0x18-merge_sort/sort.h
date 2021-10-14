@@ -1,28 +1,14 @@
-#ifndef _LISTS_H_
-#define _LISTS_H_
+#ifndef SORT_H
+#define SORT_H
+#include <stdlib.h>
+#include <stdio.h>
 
-#include <stddef.h>
-
-
-/**
- * struct listint_s - singly linked list
- * @n: integer
- * @next: points to the next node
- *
- * Description: singly linked list node structure
- * for Holberton project
- */
-typedef struct listint_s
-{
-	int n;
-	struct listint_s *next;
-} listint_t;
-
-listint_t *add_nodeint(listint_t **head, const int n);
-size_t print_listint_safe(const listint_t *head);
-size_t free_listint_safe(listint_t **h);
-
-listint_t *find_listint_loop(listint_t *head);
-listint_t *loop_start(listint_t *head, listint_t *hare);
+/* given function to print the array */
+void print_array(const int *array, size_t size);
+/* mandatory function */
+void merge_sort(int *array, size_t size);
+/* auxiliary functions */
+void recursion(int *array, size_t size, int *tmp);
+void merge_worker(int *array, int size, int middle, int *tmp);
 
 #endif
